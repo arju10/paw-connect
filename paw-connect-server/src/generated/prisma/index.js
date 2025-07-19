@@ -171,7 +171,7 @@ const config = {
     isCustomOutput: true,
   },
   relativeEnvPaths: {
-    rootEnvPath: '../../../.env',
+    rootEnvPath: null,
     schemaEnvPath: '../../../.env',
   },
   relativePath: '../../../prisma',
@@ -179,6 +179,7 @@ const config = {
   engineVersion: 'f40f79ec31188888a2e33acda0ecc8fd10a853a9',
   datasourceNames: ['db'],
   activeProvider: 'postgresql',
+  postinstall: true,
   inlineDatasources: {
     db: {
       url: {
