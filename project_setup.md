@@ -68,6 +68,8 @@ npx prisma init
 
 This will create a `prisma/` folder with a `schema.prisma` file and a `.env` file.
 
+
+
 ### 3. Configure the Database URL
 
 Edit the `.env` file to set your PostgreSQL connection string, for example:
@@ -92,4 +94,62 @@ For full details and latest updates, check the official Prisma docs:
 
 ```
 
+## Setting Up ESLint, Prettier, lint-staged, and Husky
 
+Follow these steps to add code quality and formatting tools to your project.
+
+### 1. Install ESLint, Prettier, lint-staged, and Husky
+
+```bash
+yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier lint-staged husky
+```
+
+### 2. Initialize ESLint
+
+```bash
+npx eslint --init
+```
+
+Choose the appropriate options for your project (TypeScript, Node.js, etc.).
+
+### 3. Configure Prettier
+
+Create a `.prettierrc` file:
+
+```json
+{
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 80
+}
+```
+
+### 4. Update `package.json` Scripts and lint-staged
+
+Add the following to your `package.json`:
+
+```json
+"lint-staged": {
+    "**/*.{ts,js,json,md}": [
+        "prettier --write",
+        "eslint --fix"
+    ]
+},
+"scripts": {
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --check .",
+    "format:fix": "prettier --check ."
+
+}
+```
+
+### 5. Set Up Husky
+
+Initialize Husky and add a pre-commit hook:
+
+```bash
+npx husky install
+npx husky add .husky/pre-commit "npx lint-staged"
+```
+
+Now, every commit will automatically format and lint your code.
