@@ -12,7 +12,7 @@ const router = express.Router();
 //   });
 // });
 
-router.get('/', userController.createAdmin);
+router.post('/', userController.createAdmin);
 
 // console.log(`Routes is running on http://localhost:3000/api/v1/user`);
 

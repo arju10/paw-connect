@@ -89,6 +89,15 @@ npx prisma migrate dev --name init
 ```
 ---
 
+### 6. Run Prisma Studio UI
+
+```bash
+npx prisma studio
+```
+---
+
+
+
 For full details and latest updates, check the official Prisma docs:
 [Prisma Docs: Start from Scratch with PostgreSQL](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-prismaPostgres)
 
