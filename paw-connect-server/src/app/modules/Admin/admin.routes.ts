@@ -1,8 +1,7 @@
-import { PrismaClient } from '@prisma/client'
-import express from 'express'
-import { AdminController } from './admin.controller'
-const router = express.Router()
+import express from 'express';
+import { AdminController } from './admin.controller';
+const router = express.Router();
 
-router.get('/', AdminController.getAllAdmin)
+router.get('/', AdminController.getAllAdmin);
 
-export const AdminRoutes = router
+export const AdminRoutes = router;
