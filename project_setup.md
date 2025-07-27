@@ -160,5 +160,3 @@ Initialize Husky and add a pre-commit hook:
 npx husky install
 npx husky add .husky/pre-commit "npx lint-staged"
 ```
-
-Now, every commit will automatically format and lint your code.
