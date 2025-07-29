@@ -8,23 +8,18 @@ const getAllAdminFromDB = async (params: any) => {
   const addConditions: Prisma.AdminWhereInput[] = [];
   if (params.searchTerm) {
     addConditions.push({
-      OR: [
-        {
-          name: {
-            contains: params.searchTerm,
-            mode: 'insensitive',
-          },
-        },
-        {
-          email: {
-            contains: params.searchTerm,
-            mode: 'insensitive',
-          },
-        },
-      ],
+      OR: ['name','email'].map(field => ({
+        [field]:{
+          contains:params.searchTerm,
+          mode:'insensitive'
+        }
+          
+        
+      }))
     });
   }
-  // console.log(addConditions, { depth: 'infinity' });
+
+  console.dir(addConditions, { depth: 'infinity' });
 
   const whereConditions: Prisma.AdminWhereInput = { AND: addConditions };
   const result = await prisma.admin.findMany({
