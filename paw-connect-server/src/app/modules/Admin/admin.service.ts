@@ -1,11 +1,13 @@
 import { PrismaClient } from '@prisma/client';
+import { constants } from 'buffer';
 
 const prisma = new PrismaClient();
 
 const getAllAdminFromDB = async (params: any) => {
-  console.log(params);
-  const result = await prisma.admin.findMany({
-    where: {
+  // console.log(params);
+  const addConditions = [];
+  if (params.searchTerm) {
+    addConditions.push({
       OR: [
         {
           name: {
@@ -15,14 +17,20 @@ const getAllAdminFromDB = async (params: any) => {
         },
         {
           email: {
-            contains: params.searchTerm,
+            constants: params.searchTerm,
             mode: 'insensitive',
           },
         },
       ],
-    },
-  });
-  return result;
+    });
+  }
+  console.log(addConditions,{depth:'infinity'})
+
+
+  // const result = await prisma.admin.findMany({
+  //   where:{}
+  // });
+  // return result;
 };
 
 export const AdminService = {
