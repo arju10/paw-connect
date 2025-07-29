@@ -111,7 +111,7 @@ For full details and latest updates, check the official Prisma docs:
 
 ## Setting Up ESLint, Prettier, lint-staged, and Husky
 
-Follow these steps to add code quality and formatting tools to your project.
+Follow these steps to add code quality and formatting tools to your project.</br>
 
 ### 1. Install ESLint, Prettier, lint-staged, and Husky
 
